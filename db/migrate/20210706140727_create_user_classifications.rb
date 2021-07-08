@@ -1,7 +1,7 @@
 class CreateUserClassifications < ActiveRecord::Migration[6.0]
   def change
     create_table :user_classifications do |t|
-      t.string :user_classification_name, :limit => 32
+      t.string :user_classification_name, limit: 32
 
       t.timestamps
     end
