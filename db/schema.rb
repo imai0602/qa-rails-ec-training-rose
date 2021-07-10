@@ -32,12 +32,14 @@ ActiveRecord::Schema.define(version: 2021_07_07_152720) do
     t.bigint "sale_status_id", null: false
     t.bigint "product_status_id", null: false
     t.timestamp "regist_date"
+    t.bigint "user_id", null: false
     t.boolean "delete_flag"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["product_status_id"], name: "index_products_on_product_status_id"
     t.index ["sale_status_id"], name: "index_products_on_sale_status_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -58,8 +60,35 @@ ActiveRecord::Schema.define(version: 2021_07_07_152720) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_classifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "user_classification_name", limit: 32
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "password", limit: 64
+    t.string "last_name", limit: 16
+    t.string "first_name", limit: 16
+    t.string "zipcode", limit: 16
+    t.string "prefecture", limit: 16
+    t.string "municipality", limit: 16
+    t.string "address", limit: 32
+    t.string "apartments", limit: 32
+    t.string "email", limit: 128
+    t.string "phone_number", limit: 16
+    t.string "company_name", limit: 128
+    t.boolean "delete_flag"
+    t.bigint "user_classification_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_classification_id"], name: "index_users_on_user_classification_id"
+  end
+
   add_foreign_key "products", "categories"
   add_foreign_key "products", "product_statuses"
   add_foreign_key "products", "sale_statuses"
+  add_foreign_key "products", "users"
   add_foreign_key "purchases", "products"
+  add_foreign_key "users", "user_classifications"
 end
