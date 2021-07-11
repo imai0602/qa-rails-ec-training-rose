@@ -12,8 +12,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :email, limit: 128
       t.string :phone_number, limit: 16
       t.string :company_name, limit: 128
-      t.string :delete_flag, limit: 1
-
+      t.boolean :delete_flag, limit: 1
+      t.references :user_classification, null: false, foreign_key: true
       t.timestamps
     end
   end
