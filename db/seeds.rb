@@ -1,6 +1,6 @@
 
 user_classification = UserClassification.create!(
-  user_classification_name: "test_id"
+  user_classification_name: "一般ユーザー"
 )
 
 2.times do |n|
