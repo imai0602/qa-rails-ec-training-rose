@@ -5,7 +5,7 @@ user_classification = UserClassification.create!(
 
 2.times do |n|
   user = User.create!(
-    password:"pass",
+    password:"testpass",
     last_name:"太郎#{n + 1}",
     first_name:"探求#{n + 1}",
     zipcode:"000-0000",
