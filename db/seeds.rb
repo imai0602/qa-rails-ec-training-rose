@@ -13,7 +13,7 @@ user_classification = UserClassification.create!(
     municipality:"探求区",
     address:"0-0",
     apartments:"探求学園10#{n + 1}",
-    email:"e#{n + 1}@e.com",
+    email:"e#{n + 1}@example.com",
     phone_number:"000-0000-000#{n + 1}",
     company_name:"探求学園",
     delete_flag: false,
