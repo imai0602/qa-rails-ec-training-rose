@@ -7,6 +7,7 @@ class CreateOrderDetails < ActiveRecord::Migration[6.0]
       t.string :order_detail_number, limit: 64
       t.integer :order_quantity
       t.datetime :shipment_date
+      
       t.timestamps
     end
   end
