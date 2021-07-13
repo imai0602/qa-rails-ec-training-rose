@@ -20,4 +20,5 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, length: { maximum: 15 }, format: { with: VALID_PHONE_REGEX }
 
   belongs_to :user_classification
+  has_many :products
 end
