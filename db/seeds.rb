@@ -21,34 +21,28 @@ user_classification = UserClassification.create!(
   )
 end
 
-SaleStatus.create!(
-  sale_status_name: "販売中",
-)
+["販売中","欠品中"].each do |sale_status|
+  SaleStatus.create!(
+    { sale_status_name: sale_status}
+  )
+end
 
-SaleStatus.create!(
-  sale_status_name: "欠品中",
-)
+["良","傷あり"].each do |product_status|
+  ProductStatus.create!(
+    { product_status_name: product_status}
+  )
+end
 
-ProductStatus.create!(
-  product_status_name: "良",
-)
-
-ProductStatus.create!(
-  product_status_name: "傷あり",
-)
-
-Category.create!(
-  category_name: "食料品",
-)
-
-Category.create!(
-  category_name: "日用品",
-)
+["食料品","日用品"].each do |category|
+  Category.create!(
+    { category_name: category}
+  )
+end
 
 Product.create!(
   product_name: "商品名1",
   category_id: 1,
-  price: "1000",
+  price: 1000,
   description: "探究学園限定商品1",
   sale_status_id: 1,
   product_status_id: 1,
@@ -60,7 +54,7 @@ Product.create!(
 Product.create!(
   product_name: "商品名2",
   category_id: 2,
-  price: "2000",
+  price: 2000,
   description: "探究学園限定商品2",
   sale_status_id: 2,
   product_status_id: 2,
@@ -72,7 +66,7 @@ Product.create!(
 Product.create!(
   product_name: "商品名3",
   category_id: 1,
-  price: "1500",
+  price: 1500,
   description: "探究学園限定商品3",
   sale_status_id: 1,
   product_status_id: 1,
@@ -84,7 +78,7 @@ Product.create!(
 Product.create!(
   product_name: "商品名4",
   category_id: 2,
-  price: "2500",
+  price: 2500,
   description: "探究学園限定商品4",
   sale_status_id: 2,
   product_status_id: 2,
