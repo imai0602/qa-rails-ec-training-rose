@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_07_164540) do
+ActiveRecord::Schema.define(version: 2021_07_11_130210) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "category_name", limit: 32
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2021_07_07_164540) do
     t.bigint "user_classification_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["user_classification_id"], name: "index_users_on_user_classification_id"
   end
 
