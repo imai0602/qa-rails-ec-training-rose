@@ -23,19 +23,19 @@ end
 
 ["販売中","欠品中"].each do |sale_status|
   SaleStatus.create!(
-    { sale_status_name: sale_status}
+    sale_status_name: sale_status
   )
 end
 
 ["良","傷あり"].each do |product_status|
   ProductStatus.create!(
-    { product_status_name: product_status}
+    product_status_name: product_status
   )
 end
 
 ["食料品","日用品"].each do |category|
   Category.create!(
-    { category_name: category}
+    category_name: category
   )
 end
 
