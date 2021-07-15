@@ -48,7 +48,7 @@ Product.create!(
   product_status_id: 1,
   regist_date: "2021/7/10",
   user_id: 1,
-  delete_flag: 'false'
+  delete_flag: false
 )
 
 Product.create!(
@@ -60,7 +60,7 @@ Product.create!(
   product_status_id: 2,
   regist_date: "2021/7/20",
   user_id: 1,
-  delete_flag: 'false'
+  delete_flag: false
 )
 
 Product.create!(
@@ -72,7 +72,7 @@ Product.create!(
   product_status_id: 1,
   regist_date: "2021/7/11",
   user_id: 2,
-  delete_flag: 'false'
+  delete_flag: false
 )
 
 Product.create!(
@@ -84,5 +84,5 @@ Product.create!(
   product_status_id: 2,
   regist_date: "2021/7/22",
   user_id: 2,
-  delete_flag: 'false'
+  delete_flag: false
 )
