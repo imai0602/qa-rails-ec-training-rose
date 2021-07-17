@@ -98,7 +98,7 @@ sans-serif;
         </div>
         <div>
           <ul>
-            <p><%=@user.first_name%><%=@user.last_name%> さん</p>
+            <p><%= @user.first_name %><%= @user.last_name %> さん</p>
           </ul>
           <ul class="navbar-nav">
             <a class="nav-link text-dark" href="#">商品検索</a>
@@ -123,7 +123,7 @@ sans-serif;
                 ユーザID
               </td>
               <td>
-                 <%= @user.id%>
+              　<%= @user.id %>
               </td>
             </tr>
 
@@ -132,7 +132,7 @@ sans-serif;
                 氏名
               </td>
               <td>
-                 <%=@user.first_name%> <%=@user.last_name%>
+                 <%= @user.first_name %> <%= @user.last_name %>
               </td>
               </td>
             </tr>
@@ -142,8 +142,8 @@ sans-serif;
                 住所
               </td>
               <td>
-                〒<%=@user.zipcode%><br>
-                 <%=@user.prefecture%><%=@user.municipality%><%=@user.address%><%=@user.apartments%>
+                〒<%= @user.zipcode %><br>
+                 <%= @user.prefecture %><%= @user.municipality %><%= @user.address %><%= @user.apartments %>
               </td>
             </tr>
             <tr>
@@ -151,14 +151,14 @@ sans-serif;
                 電話番号
               </td>
               <td>
-                 <%=@user.phone_number%>
+                 <%= @user.phone_number %>
               </td>
             <tr>
               <td class="text-center">
                 メールアドレス
               </td>
               <td>
-                <%=@user.email%>
+                <%= @user.email %>
               </td>
             </tr>
           </tbody>
