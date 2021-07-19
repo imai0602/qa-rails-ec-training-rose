@@ -86,3 +86,93 @@ Product.create!(
   user_id: 2,
   delete_flag: false
 )
+
+["準備中","発送中"].each do |shipment_status|
+  ShipmentStatus.create!(
+    shipment_status_name: shipment_status
+  )
+end
+
+Order.create!(
+  user_id: 1,
+  order_date: Time.zone.parse("2021-07-17 15:30:59"),
+  order_number: "1313131313"
+)
+
+Order.create!(
+  user_id: 2,
+  order_date: Time.zone.parse("2021-07-17 15:35:59"),
+  order_number: "2424242424"
+)
+
+OrderDetail.create!(
+  order_id: 1,
+  product_id: 1,
+  shipment_status_id: 1,
+  order_detail_number: "1111111111",
+  order_quantity: 10,
+  shipment_date: Time.zone.parse("2021-07-17 15:30:59"),
+)
+
+OrderDetail.create!(
+  order_id: 1,
+  product_id: 2,
+  shipment_status_id: 2,
+  order_detail_number: "2222222222",
+  order_quantity: 20,
+  shipment_date: Time.zone.parse("2021-07-17 15:30:59"),
+)
+
+OrderDetail.create!(
+  order_id: 1,
+  product_id: 3,
+  shipment_status_id: 1,
+  order_detail_number: "3333333333",
+  order_quantity: 30,
+  shipment_date: Time.zone.parse("2021-07-17 15:30:59"),
+)
+
+OrderDetail.create!(
+  order_id: 1,
+  product_id: 4,
+  shipment_status_id: 2,
+  order_detail_number: "4444444444",
+  order_quantity: 40,
+  shipment_date: Time.zone.parse("2021-07-17 15:30:59"),
+)
+
+OrderDetail.create!(
+  order_id: 2,
+  product_id: 1,
+  shipment_status_id: 1,
+  order_detail_number: "5555555555",
+  order_quantity: 50,
+  shipment_date: Time.zone.parse("2021-07-17 15:35:59"),
+)
+
+OrderDetail.create!(
+  order_id: 2,
+  product_id: 2,
+  shipment_status_id: 2,
+  order_detail_number: "6666666666",
+  order_quantity: 60,
+  shipment_date: Time.zone.parse("2021-07-17 15:35:59"),
+)
+
+OrderDetail.create!(
+  order_id: 2,
+  product_id: 3,
+  shipment_status_id: 1,
+  order_detail_number: "7777777777",
+  order_quantity: 70,
+  shipment_date: Time.zone.parse("2021-07-17 15:35:59"),
+)
+
+OrderDetail.create!(
+  order_id: 2,
+  product_id: 4,
+  shipment_status_id: 2,
+  order_detail_number: "8888888888",
+  order_quantity: 80,
+  shipment_date: Time.zone.parse("2021-07-17 15:35:59"),
+)
