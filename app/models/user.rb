@@ -8,6 +8,8 @@ class User < ApplicationRecord
   #電話番号(ハイフン無し、半角数字)
   VALID_PHONE_REGEX = /\A[0-9]+\z/
 
+  has_secure_password
+
   validates :password, presence: true, length: {minimum: 6, maximum: 15}, format: { with: VALID_PASSWORD_REGEX }
   validates :last_name, presence: true, length: {maximum: 10}
   validates :first_name, presence: true, length: {maximum: 10}
