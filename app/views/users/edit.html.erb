@@ -12,19 +12,19 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
-    <title>ユーザーログイン後</title>
+    <title>やんばる共同開発 MockUp ログイン後</title>
     <style>
       * {
         margin: 0;
         padding: 0;
       }
       body {
-    display: flex;
-    flex-flow: column;
-    position: relative;
-    padding-top: 70px;
-    padding-bottom: 70px;
-    box-sizing: border-box;
+    display: flex; /*フッターをウィンドウの最下部に常に表示させるために */
+    flex-flow: column; /*flexboxのみだと横並びに。これで縦並び */
+    position: relative; /*←相対位置*/
+    padding-top: 70px; /*←headerの高さ*/
+    padding-bottom: 70px; /*←footerの高さ*/
+    box-sizing: border-box; /*←全て含めてmin-height:100vhにbody全体の表示領域を確保・指定*/
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ,
       Meiryo, "ＭＳ Ｐゴシック", "Helvetica
         Neue", Helvetica,
@@ -32,7 +32,7 @@
   }
   header {
     background-color: #ffe040;
-    z-index: 10;
+    z-index: 10; /* 要素の重なり順序指定 */
     position: fixed;
     top: 0;
     width: 100%;
@@ -52,13 +52,13 @@
       }
       main {
         background: #ffffff;
-        flex: 1;
+        flex: 1; /*header footerの高さを除いた、残りの部分がmainで埋まる */
       }
       footer {
         width: 100%;
         background-color: #ffe040;
-        position: absolute;
-        bottom: 0;
+        position: absolute; /*←絶対位置*/
+        bottom: 0; /*下に固定*/
       }
       footer h1 {
         font-size: 15px;
@@ -80,14 +80,14 @@
         </div>
         <div>
           <ul>
-            <p><%= @user.first_name %> <%= @user.last_name %> さん</p>
+            <p>〇〇 ××さん</p>
           </ul>
           <ul class="navbar-nav">
             <a class="text-dark" href="#">商品検索</a>
             <a class="text-dark" href="#">カート</a>
             <a class="text-dark" href="#">注文履歴</a>
             <a class="text-dark" href="#">ユーザ情報</a>
-            <a class="text-dark" href="#">ログアウト</a>
+            <a class="text-dark" href="#">ログアウト</a>s
           </ul>
         </div>
       </nav>
@@ -96,39 +96,27 @@
       <form>
         <h2 class="text-center mt-5">ユーザ情報修正</h2>
 
-        <table width="50%" style="margin-left:450px">
-          <tr height="40">
-            <td align="center">氏名<span style="float: right">姓</span></td><td><input type="text" value="<%= @user.first_name %>" style="margin-left:10px" maxlength="10" required><span style="margin-right:35px"></span>名<input type="text" value="<%= @user.last_name %>"style="margin-left:10px" maxlength="10" required></td>
-          </tr>
+        <div class="row">
+         <div class="col-md-3 col-md-offset-3">
 
-          <tr height="40">
-            <td align="center">住所<span style="float: right">〒</span></td><td colspan="2"><input type="text" value="<%= @user.zipcode %>" style="margin-left:10px" size="25" pattern="\d{3}-?\d{4}" required></td>
-          </tr>
 
-          <tr height="40">
-            <td align="right">都道府県</td><td colspan="2"><input type="text" value="<%= @user.prefecture %>" style="margin-left:10px" size="50" maxlength="5" required></td>
-          </tr>
+              <%= form_with model: @user do |f| %>
 
-          <tr height="40">
-            <td align="right">市町村区</td><td colspan="2"><input type="text" value="<%= @user.municipality %>" style="margin-left:10px" size="50" maxlength="10" required></td>
-          </tr>
 
-          <tr height="40">
-            <td align="right">番地</td><td colspan="2"><input type="text" value="<%= @user.address %>" style="margin-left:10px" size="50" maxlength="15" required></td>
-          </tr>
+             性 <%= f.text_field :first_name, class: 'form-control'%>
 
-          <tr height="40">
-            <td align="right">マンション<br>部屋番号</br></td><td colspan="2"><input type="text" value="<%= @user.apartments %>" style="margin-left:10px" size="50" maxlength="20" required></td>
-          </tr>
 
-          <tr height="40">
-            <td align="center">メールアドレス</td><td colspan="2"><input type="email" value="<%= @user.email %>" style="margin-left:10px" size="65"></td>
-          </tr>
+             名 <%= f.text_field :last_name, class: 'form-control' %>
+             住所
+             〒 <%= f.text_field :zipcode, class: 'form-control' %>
+             都道府県　<%= f.text_field :prefecture, class: 'form-control' %>
 
-          <tr height="40">
-            <td align="center">電話番号</td><td colspan="2"><input type="text" value="<%= @user.phone_number %>" style="margin-left:10px" size="65" pattern="(^[0-9]+$){1,15}" required></td>
-          </tr>
-        </table>
+
+
+
+
+              <% end %>
+
 
         <div class="row mt-5">
           <div class="col-5">
