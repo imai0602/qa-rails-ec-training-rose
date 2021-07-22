@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   # パスワード(半角英数字)
-  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/
+  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/.freeze
   # 郵便番号(ハイフン有り、3桁-4桁)
-  VALID_ZIPCODE_REGEX = /\A\d{3}-\d{4}\z/
+  VALID_ZIPCODE_REGEX = /\A\d{3}-\d{4}\z/.freeze
   # メールアドレス
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   # 電話番号(ハイフン無し、半角数字)
-  VALID_PHONE_REGEX = /\A[0-9]+\z/
+  VALID_PHONE_REGEX = /\A[0-9]+\z/.freeze
 
   has_secure_password
 
@@ -22,6 +22,6 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, length: { maximum: 15 }, format: { with: VALID_PHONE_REGEX }
 
   belongs_to :user_classification
-  has_many :products
+  has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
 end
