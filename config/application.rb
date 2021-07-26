@@ -11,6 +11,7 @@ module Myapp
     # Initialize configuration defaults for originally generated Rails version.
     config.generators do |g|
       config.load_defaults 6.0
+      config.i18n.default_locale = :ja
       g.helper false
       g.test_framework false
       g.assets false
