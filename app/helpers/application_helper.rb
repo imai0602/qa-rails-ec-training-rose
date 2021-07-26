@@ -8,6 +8,6 @@ module ApplicationHelper
     @order.order_details.each do |order_detail|
       total_price += order_detail.sub_total_price
     end
-    return total_price
+    total_price
   end
 end
