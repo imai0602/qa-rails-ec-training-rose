@@ -1,67 +1,62 @@
 <% provide(:title, "ユーザー詳細") %>
 
-<body>
-  <%= render 'layouts/header' %>
-  <main>
+<%= render 'layouts/header' %>
+<main>
+  <section class="text-center pt-5 pb-2">
+    <h2 class="mb-4">ユーザ情報</h2>
+    <div class="container-fluid">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="text-center">
+              ユーザID
+            </td>
+            <td>
+              <%= @user.id %>
+            </td>
+          </tr>
 
-    <section class="text-center pt-5 pb-2">
-      <h2 class="mb-4">ユーザ情報</h2>
-      <div class="container-fluid">
-        <table class="table">
-          <tbody>
-            <tr>
-              <td class="text-center">
-                ユーザID
-              </td>
-              <td>
-                <%= @user.id %>
-              </td>
-            </tr>
+          <tr>
+            <td class="text-center">
+              氏名
+            </td>
+            <td>
+              <%= @user.first_name %> <%= @user.last_name %>
+            </td>
+            </td>
+          </tr>
 
-            <tr>
-              <td class="text-center">
-                氏名
-              </td>
-              <td>
-                <%= @user.first_name %> <%= @user.last_name %>
-              </td>
-              </td>
-            </tr>
-
-            <tr>
-              <td class="text-center">
-                住所
-              </td>
-              <td>
-                〒<%= @user.zipcode %><br>
-                 <%= @user.prefecture %><%= @user.municipality %><%= @user.address %><%= @user.apartments %>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">
-                電話番号
-              </td>
-              <td>
-                 <%= @user.phone_number %>
-              </td>
-            <tr>
-              <td class="text-center">
-                メールアドレス
-              </td>
-              <td>
-                <%= @user.email %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <div class="text-center">
-      <a class="btn btn-primary" href="#" role="button">修正/退会する</a>
+          <tr>
+            <td class="text-center">
+              住所
+            </td>
+            <td>
+              〒<%= @user.zipcode %><br>
+                <%= @user.prefecture %><%= @user.municipality %><%= @user.address %><%= @user.apartments %>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              電話番号
+            </td>
+            <td>
+                <%= @user.phone_number %>
+            </td>
+          <tr>
+            <td class="text-center">
+              メールアドレス
+            </td>
+            <td>
+              <%= @user.email %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </section>
 
-  </main>
-  <%= render 'layouts/footer' %>
-
-</body>
+  <div class="text-center">
+    <a class="btn btn-primary" href="#" role="button">修正/退会する</a>
+  </div>
+</main>
+<%= render 'layouts/footer' %>

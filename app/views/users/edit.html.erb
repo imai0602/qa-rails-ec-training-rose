@@ -1,99 +1,96 @@
 <% provide(:title, "ユーザー情報修正画面") %>
 
-<body>
-  <%= render 'layouts/header' %>
-  <main>
-  <h1 class="text-center mt-5">ユーザ情報修正</h1>
-    <%= form_with model: @user, local: true do |form| %>
+<%= render 'layouts/header' %>
+<main>
+<h1 class="text-center mt-5">ユーザ情報修正</h1>
+  <%= form_with model: @user, local: true do |form| %>
 
-      <table width="40%" style="margin-left:450px">
-        <tr height="40">
-          <td align="center">氏名</td>
-          <td>
-            <%= form.label :first_name, "姓" %>
-            <%= form.text_field :first_name %>
-            <%= form.label :last_name, "名" %>
-            <%= form.text_field :last_name %>
-          </td>
-        </tr>
+    <table width="40%" style="margin-left:450px">
+      <tr height="40">
+        <td align="center">氏名</td>
+        <td>
+          <%= form.label :first_name, "姓" %>
+          <%= form.text_field :first_name %>
+          <%= form.label :last_name, "名" %>
+          <%= form.text_field :last_name %>
+        </td>
+      </tr>
 
-        <tr height="40">
-          <td align="center">郵便番号</td>
-          <td>
-            <%= form.label :zipcode, "〒" %>
-            <%= form.text_field :zipcode, style:"width: 60%;"  %>
-          </td>
-        </tr>
+      <tr height="40">
+        <td align="center">郵便番号</td>
+        <td>
+          <%= form.label :zipcode, "〒" %>
+          <%= form.text_field :zipcode, style:"width: 60%;"  %>
+        </td>
+      </tr>
 
-        <tr height="40">
-          <td align="center"><%= form.label :prefecture, "都道府県" %></td>
-          <td>
-            <%= form.text_field :prefecture, style:"width: 80%;" %>
-          </td>
-        </tr>
+      <tr height="40">
+        <td align="center"><%= form.label :prefecture, "都道府県" %></td>
+        <td>
+          <%= form.text_field :prefecture, style:"width: 80%;" %>
+        </td>
+      </tr>
 
-        <tr height="40">
-          <td align="center"><%= form.label :municipality, "市区町村" %></td>
-          <td>
-            <%= form.text_field :municipality, style:"width: 80%;" %>
-          </td>
-        </tr>
+      <tr height="40">
+        <td align="center"><%= form.label :municipality, "市区町村" %></td>
+        <td>
+          <%= form.text_field :municipality, style:"width: 80%;" %>
+        </td>
+      </tr>
 
-        <tr height="40">
-          <td align="center"><%= form.label :address, "番地" %></td>
-          <td>
-            <%= form.text_field :address, style:"width: 80%;" %>
-          </td>
-        </tr>
+      <tr height="40">
+        <td align="center"><%= form.label :address, "番地" %></td>
+        <td>
+          <%= form.text_field :address, style:"width: 80%;" %>
+        </td>
+      </tr>
 
-        <tr height="40">
-          <td align="center"><%= form.label :apartments, "マンション部屋番号" %></td>
-          <td>
-            <%= form.text_field :apartments, style:"width: 80%;" %>
-          </td>
-        </tr>
+      <tr height="40">
+        <td align="center"><%= form.label :apartments, "マンション部屋番号" %></td>
+        <td>
+          <%= form.text_field :apartments, style:"width: 80%;" %>
+        </td>
+      </tr>
 
-        <tr height="40">
-          <td align="center"><%= form.label :email, "メールアドレス" %></td>
-          <td>
-            <%= form.text_field :email, style:"width: 100%;" %>
-          </td>
-        </tr>
+      <tr height="40">
+        <td align="center"><%= form.label :email, "メールアドレス" %></td>
+        <td>
+          <%= form.text_field :email, style:"width: 100%;" %>
+        </td>
+      </tr>
 
-        <tr height="40">
-          <td align="center"><%= form.label :phone_number, "電話番号" %></td>
-          <td>
-            <%= form.text_field :phone_number, style:"width: 100%;" %>
-          </td>
-        </tr>
+      <tr height="40">
+        <td align="center"><%= form.label :phone_number, "電話番号" %></td>
+        <td>
+          <%= form.text_field :phone_number, style:"width: 100%;" %>
+        </td>
+      </tr>
 
-        <tr height="40">
-          <td align="center"><%= form.label :password, "パスワード" %></td>
-          <td>
-            <%= form.password_field :password, style:"width: 100%;" %>
-          </td>
-        </tr>
+      <tr height="40">
+        <td align="center"><%= form.label :password, "パスワード" %></td>
+        <td>
+          <%= form.password_field :password, style:"width: 100%;" %>
+        </td>
+      </tr>
 
-        <tr height="40">
-          <td align="center"><%= form.label :password_confirmation, "パスワード (再入力)" %></td>
-          <td>
-            <%= form.password_field :password_confirmation, style:"width: 100%;" %>
-          </td>
-        </tr>
-      </table>
+      <tr height="40">
+        <td align="center"><%= form.label :password_confirmation, "パスワード (再入力)" %></td>
+        <td>
+          <%= form.password_field :password_confirmation, style:"width: 100%;" %>
+        </td>
+      </tr>
+    </table>
 
-      <div class="row mt-5">
-        <div class="col-5">
-          <div class="d-flex justify-content-end">
-            <button class="btn btn-primary" type="submit">修正</button>
-          </div>
-        </div>
-        <div class="col-5 offset-2">
-          <button class="btn btn-danger" type="submit">退会</button>
+    <div class="row mt-5">
+      <div class="col-5">
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-primary" type="submit">修正</button>
         </div>
       </div>
-    <% end %>
-  </main>
-  <%= render 'layouts/footer' %>
-
-</body>
+      <div class="col-5 offset-2">
+        <button class="btn btn-danger" type="submit">退会</button>
+      </div>
+    </div>
+  <% end %>
+</main>
+<%= render 'layouts/footer' %>
