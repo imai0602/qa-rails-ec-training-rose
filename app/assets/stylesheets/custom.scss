@@ -4,6 +4,8 @@
 }
 
 body {
+  min-height: 100vh;
+  /*フッターを固定するために画面の高さを固定しました */
   display: flex;
   /*フッターをウィンドウの最下部に常に表示させるために */
   flex-flow: column;
