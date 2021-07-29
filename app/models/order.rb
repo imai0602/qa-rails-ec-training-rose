@@ -2,7 +2,6 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_details, dependent: :destroy
 
-
   def shipment_prepared?(order)
     order.order_details.any? {|order_detail| order_detail.shipment_status.shipment_status_name == "準備中" }
   end
