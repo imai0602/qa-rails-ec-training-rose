@@ -45,14 +45,14 @@
         <div class="mt-5 ml-3">
           <p>注文番号：<%= @order.order_number %></p>
           <p>注文状態：
-          <% if @order.shipment_prepared?(@order) %>
+          <% if @order.shipment_prepared? %>
             準備中
           <% else %>
             発送中
           <% end %>
           </p>
         </div>
-        <% if @order.shipment_prepared?(@order) %>
+        <% if @order.shipment_prepared? %>
           <div class="text-end">
             <button type="button" href="#" class="btn btn-danger">注文をキャンセルする</button>
           </div>
@@ -85,7 +85,7 @@
         </table>
         <div class="border-top border-dark">
           <div class="mt-2 offset-sm-6">
-            <p class="ml-4">合計　　　　　<%= @order.total_price(@order) %>円</p>
+            <p class="ml-4">合計　　　　　<%= @order.total_price %>円</p>
           </div>
         </div>
         <div class="text-end mb-5">
