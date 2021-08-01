@@ -1,47 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    />
-    <title>ユーザー情報修正画面</title>
+<% provide(:title, "ユーザー情報修正画面") %>
 
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="navbar-nav mr-auto">
-          <h1><a class="navbar-brand" href="#">探求学園Rails専攻</a></h1>
-        </div>
-        <div>
-          <ul>
-           <p><%= @user.first_name %><%= @user.last_name %> さん</p>
-          </ul>
-          <ul class="navbar-nav">
-            <a class="text-dark" href="#">商品検索</a>
-            <a class="text-dark" href="#">カート</a>
-            <a class="text-dark" href="#">注文履歴</a>
-            <a class="text-dark" href="#">ユーザ情報</a>
-            <a class="text-dark" href="#">ログアウト</a>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
-  <main>
-
-  <h1 class="text-center mt-5">ユーザ情報修正</h1>
+<main>
+<h1 class="text-center mt-5">ユーザ情報修正</h1>
   <h3 class="text-center mt-5"><%= render 'layouts/error_messages' %> </h3>
-    <%= form_with model: @user, local: true do |form| %>
+  <%= form_with model: @user, local: true do |form| %>
 
-     <table width="40%" style="margin-left:450px">
+
+    <table width="40%" style="margin-left:450px">
       <tr height="40">
         <td align="center">氏名</td>
         <td>
@@ -123,18 +88,9 @@
           <%= form.submit "修正", class:"btn btn-primary" %>
         </div>
       </div>
-
       <div class="col-5 offset-2">
-          <button class="btn btn-danger" type="submit">退会</button>
+        <button class="btn btn-danger" type="submit">退会</button>
       </div>
     </div>
   <% end %>
-
-
 </main>
-    <footer>
-      <h1>探求学園Rails専攻</h1>
-      <p>© 2020 QuestAcademia, All rights reserved</p>
-    </footer>
-  </body>
-</html>
