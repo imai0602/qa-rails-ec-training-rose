@@ -38,6 +38,7 @@
   <main>
 
   <h1 class="text-center mt-5">ユーザ情報修正</h1>
+  <h3 class="text-center mt-5"><%= render 'layouts/error_messages' %> </h3>
     <%= form_with model: @user, local: true do |form| %>
 
      <table width="40%" style="margin-left:450px">
@@ -116,10 +117,10 @@
       </tr>
     </table>
 
-    <div class="row mt-5">
+     <div class="row mt-5">
       <div class="col-5">
         <div class="d-flex justify-content-end">
-          <button class="btn btn-primary" type="submit">修正</button>
+          <%= form.submit "修正", class:"btn btn-primary" %>
         </div>
       </div>
 
