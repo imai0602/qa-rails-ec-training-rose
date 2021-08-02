@@ -20,7 +20,7 @@
       <div class="mx-auto row">
         <label class="col-sm-2 col-form-label col-form-label-lg" for="exampleFormControlSelect2">商品カテゴリ</label>
         <div class="col-sm-4">
-          <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: '未選択', class: 'form-control', id: "exampleFormControlSelect2" %>
+          <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: '未選択', class: 'form-control' %>
         </div>
       </div>
     </div>
