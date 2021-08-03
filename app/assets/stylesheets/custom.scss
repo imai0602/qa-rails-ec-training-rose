@@ -12,7 +12,7 @@ body {
   /*flexboxのみだと横並びに。これで縦並び */
   position: relative;
   /*←相対位置*/
-  padding-top: 70px;
+  padding-top: 100px;
   /*←headerの高さ*/
   padding-bottom: 70px;
   /*←footerの高さ*/
@@ -53,6 +53,7 @@ header li {
 main {
   background: #ffffff;
   flex: 1;
+  padding-bottom: 70px;
   /* header footerの高さを除いた、残りの部分がmainで埋まる */
 }
 
