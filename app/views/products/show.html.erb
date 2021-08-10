@@ -26,7 +26,7 @@
         <div class="mt-5 text-center">
           <h1>該当商品が見つかりませんでした…</h1>
           <p class="mt-5">商品検索画面に戻り、やり直してください</p>
-          <button type="button" class="btn btn-primary">商品検索画面へ</button>
+          <%= link_to "商品検索画面へ", products_path, class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
