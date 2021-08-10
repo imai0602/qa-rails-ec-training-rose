@@ -12,6 +12,7 @@ module Myapp
     config.generators do |g|
       config.load_defaults 6.0
       config.i18n.default_locale = :ja
+      config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
       g.helper false
       g.test_framework false
       g.assets false
