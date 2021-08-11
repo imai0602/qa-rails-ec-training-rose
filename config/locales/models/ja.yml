@@ -24,9 +24,9 @@ ja:
         apartments: マンション、部屋番号
         email: メールアドレス
         phone_number: 電話番号
-        company_name: ユーザ種別
-        delete_flag: 会社名
-        user_classification_id: deleteフラグ
+        company_name: 会社名 
+        delete_flag: 削除フラグ
+        user_classification_id: ユーザ種別
       # user_classificationモデル
       user_classification: 
         user_classification_name: ユーザ種別名
@@ -56,7 +56,7 @@ ja:
         product_status_id: 商品状態
         regist_date: 商品登録日
         user_id: ユーザID
-        delete_flag: deleteフラグ
+        delete_flag: 削除フラグ
       # purchaseモデル
       purchase: 
         purchase_price: 仕入価格
