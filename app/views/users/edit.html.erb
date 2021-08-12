@@ -1,9 +1,9 @@
 <% provide(:title, "ユーザー情報修正画面") %>
 
 <main>
-<h1 class="text-center mt-5">ユーザ情報修正</h1>
   <%= form_with model: @user, local: true do |form| %>
-
+  <%= render 'shared/error_messages', object: form.object %>
+  <h1 class="text-center mt-5">ユーザ情報修正</h1>
 
     <table width="40%" style="margin-left:450px">
       <tr height="40">
