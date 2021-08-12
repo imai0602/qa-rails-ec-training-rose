@@ -15,6 +15,7 @@ ja:
       # userモデル
       user:
         password: パスワード 
+        password_confirmation: パスワード（再入力）
         last_name: 姓 
         first_name: 名
         zipcode: 郵便番号
