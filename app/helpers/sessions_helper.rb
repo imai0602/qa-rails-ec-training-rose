@@ -13,10 +13,6 @@ module SessionsHelper
     current_user.present?
   end
 
-  def current_user?(user)
-    user == current_user
-  end
-
   def correct_user
     user = User.find(params[:id])
     if user != current_user
