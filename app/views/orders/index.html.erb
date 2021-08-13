@@ -12,9 +12,9 @@
           </tr>
         </thead>
         <tbody class="h6 font-weight-normal">
-          <% @orders.each.with_index do |order, i| %>
+          <% @orders.each.with_index(1) do |order, i| %>
             <tr>
-              <th scope="row" class="font-weight-normal"><%= @page_adj + i %></th>
+              <th scope="row" class="font-weight-normal"><%= @orders.offset_value + i %></th>
               <td class="text-left"><%= order.order_number %></td>
               <td class="text-left">
                 〒<%= order.user.zipcode %><br>
