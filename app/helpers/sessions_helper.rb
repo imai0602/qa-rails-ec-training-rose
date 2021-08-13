@@ -18,8 +18,8 @@ module SessionsHelper
   end
 
   def correct_user
-    current_user = User.find(params[:id])
-    unless current_user?(current_user)
+    user = User.find(params[:id])
+    if user != current_user
       flash[:notice] = "他人の情報にアクセスすることはできません。"
       redirect_to login_path
     end
