@@ -11,6 +11,7 @@
           <p><%= form.password_field :password %></p>
           <%= form.submit "ログイン", class: "btn btn-primary", style: "width:100%;" %>
         <% end %>
+        <%= link_to 'ゲストログイン', guest_login_path, method: :post, class: "btn btn-primary", style: "width:100%; margin:1rem 0rem;" %>
       </div>
     </div>
 
