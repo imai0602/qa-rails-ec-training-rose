@@ -12,7 +12,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    if @user.update(user_params)
+    # ゲストユーザの場合、更新ができないように設定
+    if @user.update(user_params) && @user.email != "guest@example.com"
       flash[:success] = "ユーザー情報を更新しました。"
       redirect_to @user
     else
