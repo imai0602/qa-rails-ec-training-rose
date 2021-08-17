@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
     guest_person = guest_create
     login = guest_person
     flash[:success] = "ゲストユーザーとしてログインしました。"
+    ###### TODO: トップページが実装されたらroot_pathに変更する。#####
     redirect_to products_path
     login
   end
