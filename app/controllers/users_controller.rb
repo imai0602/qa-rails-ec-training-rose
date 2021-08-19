@@ -4,6 +4,22 @@ class UsersController < ApplicationController
   ##### TODO: 「ユーザー退会」のissueで "only: %i[update delete]"とする。 ######
   before_action :check_guest_user, only: :update
   #########################################################################
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    @user.user_classification_id = 1 # ユーザー種別を購入者に限定する
+    if @user.save
+      flash[:success] = "ユーザーを登録しました。こちらからログインしてください。"
+      redirect_to login_path
+    else
+      flash[:danger] = "ユーザー情報を登録できませんでした。"
+      render "new"
+    end
+  end
+
   def show
     @user = User.find_by(id: params[:id])
   end
