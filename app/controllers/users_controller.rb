@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[show edit]
   before_action :correct_user, only: %i[show edit]
-  ##### TODO: 「ユーザー退会」のissueで "only: %i[update delete]"とする。 ######
-  before_action :check_guest_user, only: :update
-  #########################################################################
+  before_action :check_guest_user, only: %i[update destroy]
+
   def new
     @user = User.new
   end
@@ -37,6 +36,12 @@ class UsersController < ApplicationController
       flash[:danger] = "ユーザー情報を更新できませんでした。"
       render "edit"
     end
+  end
+
+  def destroy
+    User.find_by(id: params[:id]).destroy!
+    flash[:success] = "退会しました。"
+    redirect_to root_path
   end
 
   def check_guest_user
