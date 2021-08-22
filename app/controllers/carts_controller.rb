@@ -18,7 +18,7 @@ class CartsController < ApplicationController
     @cart_total_price = cart_total_price(@cart)
   end
 
-  def add_cart
+  def add_cart # rubocop:disable Metrics/AbcSize
     # session内の商品の有無で条件分岐
     if session[:cart].blank?
       # 商品が入っていない場合

@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @orders = current_user.orders.page(params[:page]).per(15).order(order_date: :DESC)
   end
 
-  def create
+  def create # rubocop:disable Metrics/AbcSize
     if session[:cart].blank?
       return redirect_to carts_show_path
     end
