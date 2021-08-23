@@ -39,8 +39,8 @@ class CartsController < ApplicationController
   end
 
   def change_quantity
-    array_index = session[:cart].each_index.select {|i| session[:cart][i]["product_id"] == params["product_id"] }
-    session[:cart][array_index[0]]["quantity"] = params["quantity"]
+    array_index = session[:cart].each_index.find {|i| session[:cart][i]["product_id"] == params["product_id"] }
+    session[:cart][array_index]["quantity"] = params["quantity"]
     redirect_to carts_show_path
   end
 
