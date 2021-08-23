@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
   end
 
   def perchase_completed
-    @display_number = Order.find_by(id: params[:id]).order_number
+    @order = Order.find_by(id: params[:id])
   end
 
   private
