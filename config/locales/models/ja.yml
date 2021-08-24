@@ -1,0 +1,91 @@
+ja:
+  activerecord:
+    models: 
+      user: ユーザ
+      user_classification: ユーザ種別
+      order: 注文
+      order_detail: 注文詳細
+      shipment_status: 発送状態
+      product: 商品
+      purchase: 仕入
+      category: カテゴリー
+      sale_status: 販売状態
+      product_status: 商品状態
+    attributes:
+      # userモデル
+      user:
+        password: パスワード 
+        password_confirmation: パスワード（再入力）
+        last_name: 姓 
+        first_name: 名
+        zipcode: 郵便番号
+        prefecture: 都道府県
+        municipality: 市町村区
+        address: 番地
+        apartments: マンション、部屋番号
+        email: メールアドレス
+        phone_number: 電話番号
+        company_name: 会社名 
+        delete_flag: 削除フラグ
+        user_classification_id: ユーザ種別
+      # user_classificationモデル
+      user_classification: 
+        user_classification_name: ユーザ種別名
+      # orderモデル
+      order:
+        user_id: ユーザID
+        order_date: 注文日
+        order_number: 注文番号
+      # order_detailモデル
+      order_detail:
+        products_id: 商品ID
+        order_id: 注文ID
+        shipment_status_id: 発送状態
+        order_detail_number: 注文番号
+        order_quantity: 注文個数
+        shipment_date: 発送日
+      # shipment_statusモデル
+      shipment_status: 
+        shipment_status_name: 発送状態名
+      # productモデル
+      product: 
+        product_name: 商品名
+        category_id: カテゴリーID
+        price: 販売価格
+        description: 商品説明
+        sale_status_id: 販売状態
+        product_status_id: 商品状態
+        regist_date: 商品登録日
+        user_id: ユーザID
+        delete_flag: 削除フラグ
+      # purchaseモデル
+      purchase: 
+        purchase_price: 仕入価格
+        purchase_quantity: 仕入個数
+        purchase_company: 仕入先会社
+        order_date: 発注日
+        purchase_date: 納入日
+        product_id: 商品ID
+      # categoryモデル
+      category: 
+        category_name: カテゴリー名
+      # sale_statusモデル
+      sale_status: 
+        sale_status_name: 販売状態名
+      # product_statusモデル
+      product_status: 
+        product_status_name: 商品状態名
+  # 全てのmodelで共通して使用する可能性のあるattributesを定義
+  attributes:
+    user: ユーザ
+    user_classification: ユーザ種別
+    order: 注文
+    order_detail: 注文詳細
+    shipment_status: 発送状態
+    product: 商品
+    purchase: 仕入
+    category: カテゴリー
+    sale_status: 販売状態
+    product_status: 商品状態
+    created_at: 作成日
+    updated_at: 更新日

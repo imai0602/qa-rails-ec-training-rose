@@ -1,0 +1,65 @@
+<% provide(:title, "商品検索") %>
+
+<main>
+  <div class="mt-5 mx-auto" style="width: 200px">
+    <h2>商品検索画面</h2>
+  </div>
+  <%= form_with url: products_path, method: :get, local: true do |f| %>
+    <div class="container mt-5">
+      <div class="mx-auto row">
+        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">商品名</label>
+        <div class="col-sm-6">
+          <%= f.text_field :keyword, class: "form-control form-control-lg", id: "colFormLabelLg", value: "#{params[:keyword]}" %>
+        </div>
+        <div class="col-sm-4 mt-1">
+          <%= f.submit "検索", :name => nil, class: "btn btn-primary", style: "width: 80px" %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="mx-auto row">
+        <label class="col-sm-2 col-form-label col-form-label-lg" for="exampleFormControlSelect2">商品カテゴリ</label>
+        <div class="col-sm-4">
+          <%= f.collection_select :category_id, Category.all, :id, :category_name, prompt: '未選択', class: 'form-control', selected: "#{params[:category_id]}" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if @products %>
+    <div class="container">
+      <p>全<%= @products.count %>件</p>
+      <table class="table table-hover" border="1" style="border-collapse: collapse">
+        <thead>
+          <tr class=" table-header">
+            <th class="text-left" width="55%">商品名</th>
+            <th class="text-center" width="15%">商品カテゴリ</th>
+            <th class="text-center" width="15%">価格</th>
+            <th class="text-center" width="15%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td scope="row"><%= product.product_name %></td>
+              <td class="text-center"><%= product.category.category_name %></td>
+              <td class="text-center"><%= product.price %></td>
+              <td class="text-center">
+                <%= link_to "商品詳細", product_path(product), class: "btn btn-primary btn-sm" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="container">
+      <p>全0件</p>
+      <h2 class="text-center">検索結果がありませんでした</h2>
+    </div>
+  <% end %>
+  <div class="container">
+    <ul class="pagination justify-content-center">
+      <li class="page-item"><%= paginate @products %></li>
+    </ul>
+  </div>
+</main>

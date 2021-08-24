@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  /*フッターを固定するために画面の高さを固定しました */
+  display: flex;
+  /*フッターをウィンドウの最下部に常に表示させるために */
+  flex-flow: column;
+  /*flexboxのみだと横並びに。これで縦並び */
+  position: relative;
+  /*←相対位置*/
+  padding-top: 100px;
+  /*←headerの高さ*/
+  padding-bottom: 70px;
+  /*←footerの高さ*/
+  box-sizing: border-box;
+  /*←全て含めてmin-height:100vhにbody全体の表示領域を確保・指定*/
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ,
+    Meiryo, "ＭＳ Ｐゴシック", "Helvetica
+Neue", Helvetica,
+sans-serif;
+}
+
+header {
+  background-color: #ffe040;
+  z-index: 10;
+  /* 要素の重なり順序指定 */
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header h1 {
+  font-weight: bold;
+}
+
+header a {
+  font-weight: bold;
+  padding-left: 8px;
+}
+
+header p {
+  text-align: right;
+}
+
+header li {
+  list-style: none;
+}
+
+main {
+  background: #ffffff;
+  flex: 1;
+  /* header footerの高さを除いた、残りの部分がmainで埋まる */
+}
+
+thead {
+  background-color: #ffe040;
+}
+
+footer {
+  width: 100%;
+  background-color: #ffe040;
+  position: absolute;
+  bottom: 0;
+}
+
+footer h1 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 8px 5px;
+}
+
+footer p {
+  text-align: right;
+  font-weight: lighter;
+  margin: 0 auto;
+}
+
+.table td {
+  border: none;
+}
+
+.container {
+  margin-left: 35em;
+}
+
+.errors_alert {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  padding:1rem 0rem;
+}

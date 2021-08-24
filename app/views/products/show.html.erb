@@ -1,0 +1,33 @@
+<% provide(:title, "商品詳細") %>
+
+<main>
+  <div class="container">
+    <div class="mt-5 jumbotron bg-white">
+      <% if @product %>
+        <h1 class="text-center">商品情報</h1>
+        <h2 class="text-center"><%= @product.product_name %></h2>
+        <div class="offset-sm-3">
+          <p class="offset-sm-6">商品カテゴリ：<%= @product.category.category_name %></p>
+          <p>商品説明</p>
+          <p><%= @product.description %></p>
+          <p class="mt-4 mb-5">価格：<%= @product.price %></p>
+        </div>
+        <div class="row justify-content-center">
+          <%= form_with url: carts_add_cart_path, method: :post, local: true do |f| %>
+            <%= f.label :quantity, "購入個数", class: "mt-1 col-sm-1"%>
+            <%= f.number_field :quantity, min: 1, class: "pur-number" %>
+            <%= f.label :quantity, "個", class: "mt-1 col-sm-1"%>
+            <%= hidden_field_tag :product_id, @product.id %>
+            <%= f.submit "カートへ", class: "btn btn-primary btn-block" %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="mt-5 text-center">
+          <h1>該当商品が見つかりませんでした…</h1>
+          <p class="mt-5">商品検索画面に戻り、やり直してください</p>
+          <%= link_to "商品検索画面へ", products_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

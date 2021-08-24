@@ -1,0 +1,22 @@
+<% provide(:title, "ログイン画面") %>
+
+<main>
+  <h4 class="d-flex justify-content-center mt-5 mb-3">ログイン画面</h4>
+    <div class="d-flex justify-content-center">
+      <div class="form-group">
+        <%= form_for(:session, url: login_path, local: true) do |form| %>
+          <%= form.label :email, "メールアドレス" %>
+          <p><%= form.email_field :email %></p>
+          <%= form.label :password, "パスワード" %>
+          <p><%= form.password_field :password %></p>
+          <%= form.submit "ログイン", class: "btn btn-primary", style: "width:100%;" %>
+        <% end %>
+        <%= link_to 'ゲストログイン', guest_login_path, method: :post, class: "btn btn-primary", style: "width:100%; margin:1rem 0rem;" %>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <%= link_to "まだ登録がお済みでない方はこちら", signup_path, style: "padding-top: 10px" %>
+    </div>
+  </div>
+</main>
