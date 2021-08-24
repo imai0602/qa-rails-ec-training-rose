@@ -27,7 +27,7 @@ class CartsController < ApplicationController
     end
     # 商品が既に入っている場合、追加する商品が重複するかで条件分岐
     # match = session[:cart].select {|cart| cart["product_id"] == params["product_id"] }
-      match = session[:cart].find {|cart| cart["product_id"] == params["product_id"] }
+    match = session[:cart].find {|cart| cart["product_id"] == params["product_id"] }
     # 重複が発生する場合
     if match.present?
       match["quantity"] += params["quantity"].to_i
