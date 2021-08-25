@@ -53,4 +53,12 @@ class OrdersController < ApplicationController
     def generate_order_number
       "#{current_user.id}#{Time.current.strftime("%y%m%d%H%M").to_i}".rjust(16, "0")
     end
+
+    def correct_user
+      user = Order.find(params[:id]).user
+      if user != current_user
+        flash[:notice] = "他人の情報にアクセスすることはできません。"
+        redirect_to root_path
+      end
+    end
 end
