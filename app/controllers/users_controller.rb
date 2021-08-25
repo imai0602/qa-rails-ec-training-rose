@@ -57,4 +57,12 @@ class UsersController < ApplicationController
       params.require(:user).permit(:password, :password_confirmation, :last_name, :first_name, :zipcode, :prefecture, :municipality, :address, :apartments,
                                    :email, :phone_number)
     end
+
+    def correct_user
+      user = User.find(params[:id])
+      if user != current_user
+        flash[:notice] = "他人の情報にアクセスすることはできません。"
+        redirect_to root_path
+      end
+    end
 end

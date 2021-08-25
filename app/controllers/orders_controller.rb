@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :correct_user, only: :show
+  before_action :correct_user, only: %i[show destroy]
 
   def show
     @order = Order.find_by(id: params[:id])
@@ -9,12 +9,22 @@ class OrdersController < ApplicationController
     @orders = current_user.orders.page(params[:page]).per(15).order(order_date: :DESC)
   end
 
-  def create # rubocop:disable Metrics/AbcSize
+  def destroy
+    order = current_user.orders.find_by(id: params[:id])
+    order.order_details.destroy_by(shipment_status_id: 1) # 準備中のorder_detailのみを削除
+    if order.order_details.blank? # order_detailが０個の場合は、order自体を削除する
+      order.destroy! # order自体を削除
+    end
+    flash[:success] = "準備中の注文をキャンセルしました。"
+    redirect_to orders_path
+  end
+
+  def create
     if session[:cart].blank?
       return redirect_to carts_show_path
     end
 
-    #cart = session[:cart]
+    # cart = session[:cart]
 
     order = current_user.orders.create!(
       order_date: Time.current,
@@ -25,7 +35,7 @@ class OrdersController < ApplicationController
       order.order_details.create(
         product_id: cart["product_id"],
         shipment_status_id: 1,
-        order_detail_number: "1111111111111111", #使用する用途が無い為仮の番号
+        order_detail_number: "1111111111111111", # 使用する用途が無い為仮の番号
         order_quantity: cart["quantity"],
       )
     end
@@ -42,5 +52,13 @@ class OrdersController < ApplicationController
 
     def generate_order_number
       "#{current_user.id}#{Time.current.strftime("%y%m%d%H%M").to_i}".rjust(16, "0")
+    end
+
+    def correct_user
+      user = Order.find(params[:id]).user
+      if user != current_user
+        flash[:notice] = "他人の情報にアクセスすることはできません。"
+        redirect_to root_path
+      end
     end
 end
