@@ -13,14 +13,6 @@ module SessionsHelper
     current_user.present?
   end
 
-  def correct_user
-    user = User.find(params[:id])
-    if user != current_user
-      flash[:notice] = "他人の情報にアクセスすることはできません。"
-      redirect_to root_path
-    end
-  end
-
   def log_out
     session.delete(:user_id)
     @current_user = nil # rubocop:disable Rails/HelperInstanceVariable
