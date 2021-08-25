@@ -19,12 +19,12 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
-  def create # rubocop:disable Metrics/AbcSize
+  def create
     if session[:cart].blank?
       return redirect_to carts_show_path
     end
 
-    #cart = session[:cart]
+    # cart = session[:cart]
 
     order = current_user.orders.create!(
       order_date: Time.current,
@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
       order.order_details.create(
         product_id: cart["product_id"],
         shipment_status_id: 1,
-        order_detail_number: "1111111111111111", #使用する用途が無い為仮の番号
+        order_detail_number: "1111111111111111", # 使用する用途が無い為仮の番号
         order_quantity: cart["quantity"],
       )
     end
