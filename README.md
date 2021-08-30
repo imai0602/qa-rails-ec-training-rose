@@ -1,5 +1,5 @@
 # qa-rails-ec-training-rose
-共同開発のブラッシュアップ版
+共同開発のブラッシュアップ版を作成
 
 
 ## Docker操作
