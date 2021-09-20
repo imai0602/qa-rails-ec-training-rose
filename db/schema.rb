@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_134052) do
+ActiveRecord::Schema.define(version: 2021_08_31_133849) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "category_name", limit: 32
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_07_19_134052) do
     t.string "order_number", limit: 16
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

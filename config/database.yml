@@ -16,6 +16,7 @@ default: &default
   username: root
   password: password
   host: db
+  MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
 development:
   <<: *default
